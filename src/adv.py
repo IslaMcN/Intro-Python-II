@@ -1,5 +1,5 @@
 from room import Room
-
+import player from Player
 # Declare all the rooms
 
 room = {
@@ -49,3 +49,56 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+def handler(com, player):
+    end = False,
+    if com == 'n':
+        #Go north
+        if player.current_room.n_to != None:
+            #Put player in room
+            player.current_room = player.current_room.n_to
+            #Read off room info
+            room_descritpion(player.current_room)
+        else:
+            print('Do NOT enter')
+    elif com == 's':
+        #Go south
+        if player.current_room.s_to != None:
+            #Put player in room
+            player.current_room = player.current_room.s_to
+            #Read off room info
+            room_description(player.current_room)
+        else:
+            print('There is nothing for you here')
+    elif com == 'e':
+        #Go east
+        if player.current_room.e_to != None:
+            #Put player in room
+            player.current_room = player.current_room.e_to
+            #Read off room info
+            room_description(player.current_room)
+        else:
+            print('Turn around and try again')
+    elif com == 'w':
+        #Go west
+        if player.current_room.w_to != None:
+            #Put player in room
+            player.current_room = player.current_room.w_to
+            #Read off room info
+            room_description(player.current_room)
+        else:
+            print('This is not da way')
+    else:
+        print('Invalid direction, please use n, s, e, or w')
+
+
+def room_description(room):
+    print('You are in {room.name}')
+    print(room.description)
+end = False
+
+room_description(me.current_room)
+
+while end == False:
+    end = handler(str(input()), me)
+
+print('Bye bye')
