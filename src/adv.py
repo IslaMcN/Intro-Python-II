@@ -1,5 +1,5 @@
 from room import Room
-from play import Player
+from player import Player
 # Declare all the rooms
 
 room = {
@@ -49,58 +49,67 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+###Step 1: Entering name and beginning game
+user = Player(raw_input("Please enter your name: "), room['outside'])
+print(user.name, user.current_room)
+
+##Currently saying "isla" or "i" is not defined but if I put nothing it saying it cannot parse an empty string.
+#Takes a name but return room.Room instance is not clean
+
+##Step 2: prompt user to make a choice
+
+#Step 3: Display new room and loop
+
 def handler(com, player):
-    end = False,
-    if com == 'n':
+    while True:
+        com.input("=> ").lower()
+        if com == 'n':
         #Go north
-        if player.current_room.n_to != None:
+            if player.current_room.n_to != None:
             #Put player in room
-            player.current_room = player.current_room.n_to
+                player.current_room = player.current_room.n_to
             #Read off room info
-            room_descritpion(player.current_room)
-        else:
-            print('Do NOT enter')
-    elif com == 's':
+                room_descritpion(player.current_room)
+            else:
+                print('Do NOT enter')
+        elif com == 's':
         #Go south
-        if player.current_room.s_to != None:
+            if player.current_room.s_to != None:
             #Put player in room
-            player.current_room = player.current_room.s_to
+                player.current_room = player.current_room.s_to
             #Read off room info
-            room_description(player.current_room)
-        else:
-            print('There is nothing for you here')
-    elif com == 'e':
+                room_description(player.current_room)
+            else:
+                print('There is nothing for you here')
+        elif com == 'e':
         #Go east
-        if player.current_room.e_to != None:
+            if player.current_room.e_to != None:
             #Put player in room
-            player.current_room = player.current_room.e_to
+                player.current_room = player.current_room.e_to
             #Read off room info
-            room_description(player.current_room)
-        else:
-            print('Turn around and try again')
-    elif com == 'w':
+                room_description(player.current_room)
+            else:
+                print('Turn around and try again')
+        elif com == 'w':
         #Go west
-        if player.current_room.w_to != None:
+            if player.current_room.w_to != None:
             #Put player in room
-            player.current_room = player.current_room.w_to
+                player.current_room = player.current_room.w_to
             #Read off room info
-            room_description(player.current_room)
+                room_description(player.current_room)
+            else:
+                print('This is not da way')
+        elif com == 'q':
+            print('Bye, Bye!')
         else:
-            print('This is not da way')
-    elif com == 'q':
-        print('Bye, Bye!')
-    else:
-        print('I do not know what that means. Try n, s, e, w, or q')
+            print('I do not know what that means. Try n, s, e, w, or q')
 
 
 def room_description(room):
     print('You are in {room.name}')
     print(room.description)
-end = False
 
-room_description(me.current_room)
+room_description(user.current_room)
 
-while end == False:
-    end = handler(str(input()), me)
 
-print('Bye bye')
