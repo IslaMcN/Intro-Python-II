@@ -1,5 +1,5 @@
 from room import Room
-import player from Player
+from play import Player
 # Declare all the rooms
 
 room = {
@@ -87,8 +87,10 @@ def handler(com, player):
             room_description(player.current_room)
         else:
             print('This is not da way')
+    elif com == 'q':
+        print('Bye, Bye!')
     else:
-        print('Invalid direction, please use n, s, e, or w')
+        print('I do not know what that means. Try n, s, e, w, or q')
 
 
 def room_description(room):
