@@ -11,7 +11,9 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
-        self.items = items
+        self.items = [items]
+    def display_items(self):
+        print(self.items)
     def __str__(self):
         display_string = (
             f"------------"

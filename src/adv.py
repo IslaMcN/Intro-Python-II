@@ -4,21 +4,21 @@ from player import Player
  
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons", ['candle', 'crystal']),
+                     "North of you, the cave mount beckons", 'candle'),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""", ['Golden Key']),
+passages run north and east.""", 'GoldenKey'),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm.""", ['Cat Skull']),
+the distance, but there is no way across the chasm.""",'CatSkull'),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air.""", ['Old Notebook']),
+to north. The smell of gold permeates the air.""", 'OldNotebook'),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""", ['Empty box']),
+earlier adventurers. The only exit is to the south.""", 'EmptyBox'),
 }
 
 
@@ -60,13 +60,13 @@ print(room['outside'])
 ##Step 2: prompt user to make a choice
 #No prompt after telling where player is
 direction = ['n', 's', 'e', 'w']
-pick = 'a'
+pick = ['a']
 #Step 3: Display new room and loop
-
+items = Room.display_items
 while True:
     com = input("==> ").lower()
     if com in pick:
-        user.pick_up(room.items)
+        user.pick_up(items)
     elif com in direction:
         user.travel(com)
        
