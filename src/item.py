@@ -9,8 +9,13 @@
 ## associated with player and room
 
 class Item:
-    def __init__(self, name):
+    def __init__(self, name, description):
         # Hint: the name should be one word for ease in parsing later.
         self.name = name
-        
+        self.description = description
+        print(f"{self.name}, engraved it says {self.description}")
+# items = Item('Sword', 'Shiny pointy thing that could kill')
+# print(items.name)
+# print(items.description)
+
         

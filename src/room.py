@@ -3,7 +3,7 @@
 
 class Room:
     #should have name and description attributes
-    def __init__(self,name, description, items):
+    def __init__(self,name, description):
         self.name = name,
         self.description = description,
          #should have cardinal direction attributes that point to the correct room
@@ -11,7 +11,7 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
-        self.items = [items]
+        self.items = ''
     def display_items(self):
         print(self.items)
     def __str__(self):
