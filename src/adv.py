@@ -13,7 +13,7 @@ passages run north and east."""),
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
 the distance, but there is no way across the chasm."""),
-
+ 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
 to north. The smell of gold permeates the air."""),
 
@@ -62,6 +62,8 @@ print(room['outside'])
 # No prompt after telling where player is
 direction = ['n', 's', 'e', 'w']
 pick = ['a']
+get = ['get']
+drop = ['drop']
 # Step 3: Display new room and loop
 trinkets_name = [
     'Sword', 'Rasin', 'MedPack'
@@ -74,7 +76,9 @@ random.shuffle(trinkets_des)
 
 while True:
     com = input("==> ").lower()
-    if com in pick:
+    if com in drop:
+        user.drop(trinkets_name[0])
+    elif com in get:
         user.pick_up(trinkets_name[0], trinkets_des[0])
     elif com in direction:
         user.travel(com)
@@ -96,7 +100,24 @@ while True:
             ]
             random.shuffle(trinkets_name)
             random.shuffle(trinkets_des)
-
+        elif com == 'e':
+            trinkets_name = [
+                'LipStick', 'Elephant Figurine', 'Leave-in Conditioner'
+            ]
+            trinkets_des = [
+                'Honeysuckle', 'Do not get wet', 'All natural'
+            ]
+            random.shuffle(trinkets_name)
+            random.shuffle(trinkets_des)
+        elif com == 'w':
+            trinkets_name = [
+                'Tape', 'Starbucks Cup', 'Hairbrush'
+            ]
+            trinkets_des = [
+                'Durable', 'For cold use only', 'FoxyBae'
+            ]
+            random.shuffle(trinkets_name)
+            random.shuffle(trinkets_des)    
     elif com == "q":
         print("Bye Bye")
         exit()

@@ -18,4 +18,9 @@ class Player:
         complete = inventory.name + ' ' + ',' + ' ' + self.items
         print(f"Inventory: {complete}")
         self.items = complete
-    ##Not picking up for some reason
+    def drop(self, itemName):
+
+        inventory = self.items.split(',')
+        ##Now it is an array --  tell it to delete the first item in your list using index
+        inventory.pop(0)
+        print(inventory)
