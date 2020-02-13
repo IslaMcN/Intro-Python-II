@@ -57,6 +57,7 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 
 # Step 1: Entering name and beginning game
+##DO SOMETHING LIKE THIS \/\/ VVVVVV With your player import crap
 user = Player(input("Please enter your name: "), room['outside'])
 print(user.name)
 print(room['outside'])
@@ -86,7 +87,7 @@ while True:
     elif com in get:
         user.pick_up(trinkets_name[0], trinkets_des[0])
     elif com in direction:
-        user.print_score()
+        # user.print_score()
         user.travel(com)
         if com == 'n':
             trinkets_name = [
