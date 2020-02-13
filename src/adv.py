@@ -4,6 +4,8 @@ import random
 # Declare all the rooms
 
 room = {
+    'highway': Room('Highway', 'You have just been ran over'),
+    'parking-lot': Room("Parking lot", "North of you is a Cave entrance. To the South is a highway."),
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
 
@@ -24,8 +26,11 @@ earlier adventurers. The only exit is to the south."""),
 
 
 # Link rooms together
-
+room['highway'].s_to = room['parking-lot']
+room['parking-lot'].n_to = room['outside']
+room['parking-lot'].s_to = room['highway']
 room['outside'].n_to = room['foyer']
+room['outside'].s_to = room['parking-lot']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
 room['foyer'].e_to = room['narrow']
