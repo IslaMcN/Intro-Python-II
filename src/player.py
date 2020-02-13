@@ -25,9 +25,12 @@ class Player:
         inventory = Item(itemName, itemDes)
         complete = inventory.name + ' ' + ',' + ' ' + self.items
         self.items = complete
-        print(len(self.items))
-        if len(self.items) > 3:
+        # print(len(self.items))
+        if len(self.items) > 22:
             new_item = Item.treasure(inventory)
+            new_score = self.score + 22
+            self.score = new_score
+            print(f"New Score: {self.score}")
             return new_item
         else:
             print(f"Inventory: {complete}")
