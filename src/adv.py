@@ -86,6 +86,7 @@ while True:
     elif com in get:
         user.pick_up(trinkets_name[0], trinkets_des[0])
     elif com in direction:
+        user.print_score()
         user.travel(com)
         if com == 'n':
             trinkets_name = [
